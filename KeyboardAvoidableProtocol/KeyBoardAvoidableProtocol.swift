@@ -11,7 +11,7 @@ import UIKit
 
 public protocol KeyboardAvoidable  {
     
-    var scrollView: UIScrollView! { get }
+    var scrollView: UIScrollView { get }
     func registerKeyboardNotifications()
     func unregisterKeyboardNotifications()
     func keyboardWillShow(notification: Notification)
@@ -54,7 +54,7 @@ private extension KeyboardAvoidable {
         get {
             let bottomPoint = CGPoint(x: scrollView.frame.maxX, y: scrollView.frame.maxY)
             let superView = scrollView.superview ?? scrollView
-            return superView?.convert(bottomPoint, to: nil).y ?? 0
+            return superView.convert(bottomPoint, to: nil).y
         }
     }
     

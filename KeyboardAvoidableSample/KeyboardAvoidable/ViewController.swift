@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewOutlet: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,11 @@ class ViewController: UIViewController {
 
 extension ViewController:  KeyboardAvoidable {
 
+    var scrollView: UIScrollView {
+        get {
+            return scrollViewOutlet
+        }
+    }
     func keyboardWillShow(notification: Notification) {
         print("optional implementation for additional functionality of keyboardWillShow event")
     }
