@@ -65,6 +65,7 @@ private extension KeyboardAvoidable {
         let yOffset = (scrollViewCoveredHeight > 0 ? scrollViewCoveredHeight : 0)
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: yOffset, right: 0)
+        scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: yOffset, right: 0)
         
         keyboardWillShow(notification: notification)
     }
@@ -72,7 +73,8 @@ private extension KeyboardAvoidable {
     private func keyboardWillHideHandler(notification: Notification) {
         
         scrollView.contentInset = .zero
-        
+        scrollView.scrollIndicatorInsets = .zero
+
         keyboardWillHide(notification: notification)
     }
     
