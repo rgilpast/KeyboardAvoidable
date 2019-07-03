@@ -2,7 +2,7 @@
 KeyboardAvoidable
 ==================
 
-Swift protocol based solution for avoiding text fields be covered by keyboard in iOS, when they get the edition focus
+Swift protocol based solution for avoiding text fields or text views be covered by keyboard in iOS, when they get the edition focus
 
 Introduction
 ------------
