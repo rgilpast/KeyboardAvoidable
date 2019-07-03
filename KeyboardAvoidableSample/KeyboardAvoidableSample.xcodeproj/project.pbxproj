@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		051A50DE22BD2461008C5E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051A50DD22BD2461008C5E62 /* AppDelegate.swift */; };
-		051A50E022BD2461008C5E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051A50DF22BD2461008C5E62 /* ViewController.swift */; };
+		051A50E022BD2461008C5E62 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051A50DF22BD2461008C5E62 /* ScrollViewController.swift */; };
 		051A50E322BD2461008C5E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 051A50E122BD2461008C5E62 /* Main.storyboard */; };
 		051A50E522BD2462008C5E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051A50E422BD2462008C5E62 /* Assets.xcassets */; };
 		051A50E822BD2462008C5E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 051A50E622BD2462008C5E62 /* LaunchScreen.storyboard */; };
 		051A50F022BD2C8B008C5E62 /* KeyBoardAvoidableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051A50EF22BD2C8A008C5E62 /* KeyBoardAvoidableProtocol.swift */; };
+		054CC6C822C3F99400EA4CC6 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054CC6C722C3F99400EA4CC6 /* ContainerViewController.swift */; };
+		054CC6CA22C3F9B200EA4CC6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054CC6C922C3F9B200EA4CC6 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		051A50DA22BD2461008C5E62 /* KeyboardAvoidableSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardAvoidableSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		051A50DD22BD2461008C5E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		051A50DF22BD2461008C5E62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		051A50DF22BD2461008C5E62 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		051A50E222BD2461008C5E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		051A50E422BD2462008C5E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		051A50E722BD2462008C5E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		051A50E922BD2462008C5E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		051A50EF22BD2C8A008C5E62 /* KeyBoardAvoidableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyBoardAvoidableProtocol.swift; path = ../../KeyboardAvoidableProtocol/KeyBoardAvoidableProtocol.swift; sourceTree = "<group>"; };
+		054CC6C722C3F99400EA4CC6 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		054CC6C922C3F9B200EA4CC6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +60,15 @@
 		051A50DC22BD2461008C5E62 /* KeyboardAvoidable */ = {
 			isa = PBXGroup;
 			children = (
-				051A50DD22BD2461008C5E62 /* AppDelegate.swift */,
-				051A50DF22BD2461008C5E62 /* ViewController.swift */,
-				051A50EF22BD2C8A008C5E62 /* KeyBoardAvoidableProtocol.swift */,
 				051A50E122BD2461008C5E62 /* Main.storyboard */,
 				051A50E422BD2462008C5E62 /* Assets.xcassets */,
 				051A50E622BD2462008C5E62 /* LaunchScreen.storyboard */,
 				051A50E922BD2462008C5E62 /* Info.plist */,
+				051A50EF22BD2C8A008C5E62 /* KeyBoardAvoidableProtocol.swift */,
+				051A50DF22BD2461008C5E62 /* ScrollViewController.swift */,
+				054CC6C722C3F99400EA4CC6 /* ContainerViewController.swift */,
+				054CC6C922C3F9B200EA4CC6 /* TableViewController.swift */,
+				051A50DD22BD2461008C5E62 /* AppDelegate.swift */,
 			);
 			path = KeyboardAvoidable;
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				051A50E022BD2461008C5E62 /* ViewController.swift in Sources */,
+				051A50E022BD2461008C5E62 /* ScrollViewController.swift in Sources */,
 				051A50F022BD2C8B008C5E62 /* KeyBoardAvoidableProtocol.swift in Sources */,
+				054CC6C822C3F99400EA4CC6 /* ContainerViewController.swift in Sources */,
+				054CC6CA22C3F9B200EA4CC6 /* TableViewController.swift in Sources */,
 				051A50DE22BD2461008C5E62 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +303,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgp.KeyboardAvoidableSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -313,6 +323,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgp.KeyboardAvoidableSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

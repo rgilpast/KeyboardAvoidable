@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ScrollViewController.swift
 //  KeyboardAvoidableFields
 //
 //  Created by Rafael Gil Pastor on 21/06/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ScrollViewController: UIViewController {
     
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
     
@@ -24,8 +24,7 @@ class ViewController: UIViewController {
     
 }
 
-
-extension ViewController:  KeyboardAvoidable {
+extension ScrollViewController:  KeyboardAvoidable {
 
     var scrollView: UIScrollView {
         get {
