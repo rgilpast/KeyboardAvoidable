@@ -57,14 +57,22 @@ private extension KeyboardAvoidable {
             return superView.convert(bottomPoint, to: nil).y
         }
     }
-    
+
+    private var firstResponderBottomPosition: CGFloat {
+        get {
+            guard let responder = scrollView.firstResponder else {
+                return 0
+            }
+            let bottomPoint = CGPoint(x: responder.frame.maxX, y: responder.frame.maxY)
+            let superView = responder.superview ?? responder
+            return superView.convert(bottomPoint, to: nil).y
+        }
+    }
+
     private func keyboardWillShowHandler(notification: Notification) {
         
-        let keyboardTopPosition = screenHeight - keyboardHeight(notification)
-        let scrollViewCoveredHeight = scrollViewBottomPosition - keyboardTopPosition
-        let yOffset = (scrollViewCoveredHeight > 0 ? scrollViewCoveredHeight : 0)
-        
-        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: yOffset, right: 0)
+        let yOffset = calculateYOffset(withKeyboardNotification: notification)
+        scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y + yOffset)
         scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: yOffset, right: 0)
         
         keyboardWillShow(notification: notification)
@@ -72,20 +80,33 @@ private extension KeyboardAvoidable {
     
     private func keyboardWillHideHandler(notification: Notification) {
         
-        scrollView.contentInset = .zero
+        let yOffset = calculateYOffset(withKeyboardNotification: notification)
+        scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y - yOffset)
         scrollView.scrollIndicatorInsets = .zero
 
         keyboardWillHide(notification: notification)
     }
     
-    private func keyboardHeight(_ notification: Notification) -> CGFloat {
+    private func calculateYOffset(withKeyboardNotification keyboardNotification: Notification) -> CGFloat {
+        
+        var yOffset: CGFloat = .zero
+        
+        if let firstResponder = scrollView.firstResponder {
+            
+            let keyboardHeight = calculateKeyboardHeight(keyboardNotification, withFirstResponder: firstResponder)
+            let keyboardTopPosition = screenHeight - keyboardHeight
+            let coveredAreaHeight = firstResponder.maxGlobalPosition.y - keyboardTopPosition
+            yOffset = coveredAreaHeight > 0 ? coveredAreaHeight : 0
+        }
+
+        return yOffset
+    }
+    
+    private func calculateKeyboardHeight(_ notification: Notification, withFirstResponder responder: UIResponder?) -> CGFloat {
         
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
-        var accessoryViewHeight: CGFloat = 0.0
-        if let textField = scrollView.firstResponder as? UITextField {
-            accessoryViewHeight = textField.inputAccessoryView?.bounds.height ?? 0.0
-        }
+        let accessoryViewHeight = responder?.inputAccessoryView?.bounds.height ?? 0.0
         return keyboardSize.cgRectValue.height + accessoryViewHeight
     }
 }
@@ -101,5 +122,12 @@ fileprivate extension UIView {
             }
         }
         return nil
+    }
+    
+    var maxGlobalPosition: CGPoint {
+
+        let bottomPoint = CGPoint(x: self.frame.maxX, y: self.frame.maxY)
+        let superView = self.superview ?? self
+        return superView.convert(bottomPoint, to: nil)
     }
 }
