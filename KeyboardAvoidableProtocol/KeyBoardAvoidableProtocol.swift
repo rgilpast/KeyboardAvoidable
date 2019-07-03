@@ -49,25 +49,6 @@ private extension KeyboardAvoidable {
             return screenRect.size.height
         }
     }
-    
-    private var scrollViewBottomPosition: CGFloat {
-        get {
-            let bottomPoint = CGPoint(x: scrollView.frame.maxX, y: scrollView.frame.maxY)
-            let superView = scrollView.superview ?? scrollView
-            return superView.convert(bottomPoint, to: nil).y
-        }
-    }
-
-    private var firstResponderBottomPosition: CGFloat {
-        get {
-            guard let responder = scrollView.firstResponder else {
-                return 0
-            }
-            let bottomPoint = CGPoint(x: responder.frame.maxX, y: responder.frame.maxY)
-            let superView = responder.superview ?? responder
-            return superView.convert(bottomPoint, to: nil).y
-        }
-    }
 
     private func keyboardWillShowHandler(notification: Notification) {
         
@@ -126,8 +107,8 @@ fileprivate extension UIView {
     
     var maxGlobalPosition: CGPoint {
 
-        let bottomPoint = CGPoint(x: self.frame.maxX, y: self.frame.maxY)
+        let maxPosition = CGPoint(x: self.frame.maxX, y: self.frame.maxY)
         let superView = self.superview ?? self
-        return superView.convert(bottomPoint, to: nil)
+        return superView.convert(maxPosition, to: nil)
     }
 }
